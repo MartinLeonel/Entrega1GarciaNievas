@@ -1,0 +1,41 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Este es el título del Inicio que cambio</h1>
+  
+
+    <h3>Podes buscar un empresa:</h3>
+
+    <form action="/AppCoder/buscar/" method="GET">
+
+        <input type="number" name="sucursal" id="sucursal">
+
+        <input type="submit" value="Buscar">
+
+
+
+
+    </form>
+
+    
+
+    {% if empresa %}
+
+    <p>Estamos buscando el: {{sucursal}}</p>
+
+    <ul>
+	{% for empresas in empresa %}
+		<li> {{empresas.nombre}} </li>
+		<li> {{empresas.sucursal}} </li>
+	{% endfor %}
+
+    </ul>
+
+    {% endif %}
+
+{% endblock %}
